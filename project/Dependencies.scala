@@ -7,17 +7,11 @@ object Dependencies {
   // scala version
   val scalaOrganization  = "org.scala-lang"
   val scalaVersion       = "2.13.3"
-  val crossScalaVersions = Seq("2.11.12", "2.12.10", "2.13.3")
+  val crossScalaVersions = Seq("2.12.10", "2.13.3")
 
   // libraries versions
   val catsVersion       = "2.2.0"
-  val declineVersion    = "1.3.0"
-  val drosteVersion     = "0.8.0"
-  val enumeratumVersion = "1.6.1"
   val fs2Version        = "2.4.2"
-  val monixVersion      = "3.2.2"
-  val monocleVersion    = "2.1.0"
-  val refinedVersion    = "0.9.17"
   val specs2Version     = "4.10.3"
 
   // resolvers
@@ -29,29 +23,7 @@ object Dependencies {
   // functional libraries
   val cats              = "org.typelevel" %% "cats-core" % catsVersion
   val catsLaws          = "org.typelevel" %% "cats-laws" % catsVersion
-  val droste            = "io.higherkindness" %% "droste-core" % drosteVersion
-  val enumeratum        = "com.beachape" %% "enumeratum" % enumeratumVersion
   val fs2               = "co.fs2" %% "fs2-core" % fs2Version
-  val fs2IO             = "co.fs2" %% "fs2-io" % fs2Version
-  val magnolia          = "com.propensive" %% "magnolia" % "0.17.0"
-  val monocle           = "com.github.julien-truffaut" %% "monocle-core" % monocleVersion
-  val monocleMacro      = "com.github.julien-truffaut" %% "monocle-macro" % monocleVersion
-  val newtype           = "io.estatico" %% "newtype" % "0.4.3"
-  val refined           = "eu.timepit" %% "refined" % refinedVersion
-  val refinedCats       = "eu.timepit" %% "refined-cats" % refinedVersion
-  val refinedDecline    = "com.monovore" %% "decline-refined" % declineVersion
-  val refinedPureConfig = "eu.timepit" %% "refined-pureconfig" % refinedVersion
-  // async
-  val monixExecution = "io.monix" %% "monix-execution" % monixVersion
-  val monixEval      = "io.monix" %% "monix-eval" % monixVersion
-  val monixBio       = "io.monix" %% "monix-bio" % "0.1.0"
-  // config
-  val decline     = "com.monovore" %% "decline" % declineVersion
-  val scalaConfig = "com.typesafe" % "config" % "1.4.0"
-  val pureConfig  = "com.github.pureconfig" %% "pureconfig" % "0.13.0"
-  // logging
-  val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
-  val logback      = "ch.qos.logback" % "logback-classic" % "1.2.3"
   // testing
   val spec2Core       = "org.specs2" %% "specs2-core" % specs2Version
   val spec2Scalacheck = "org.specs2" %% "specs2-scalacheck" % specs2Version
@@ -68,24 +40,7 @@ trait Dependencies {
 
   val mainDeps = Seq(
     cats,
-    enumeratum,
-    fs2,
-    fs2IO,
-    magnolia,
-    monocle,
-    monocleMacro,
-    newtype,
-    refined,
-    refinedCats,
-    refinedDecline,
-    refinedPureConfig,
-    decline,
-    scalaConfig,
-    pureConfig,
-    monixExecution,
-    monixEval,
-    scalaLogging,
-    logback
+    fs2
   )
 
   val testDeps = Seq(catsLaws, spec2Core, spec2Scalacheck)

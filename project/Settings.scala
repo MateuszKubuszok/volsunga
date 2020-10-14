@@ -71,7 +71,6 @@ object Settings extends Dependencies {
       "-Xlint:inaccessible",
       "-Xlint:infer-any",
       "-Xlint:missing-interpolator",
-      "-Xlint:nullary-override",
       "-Xlint:nullary-unit",
       "-Xlint:option-implicit",
       "-Xlint:package-object-classes",
