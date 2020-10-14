@@ -1,5 +1,8 @@
 package volsunga
 
+import cats.syntax.all._
+import cats.Applicative
+
 import scala.concurrent.duration.FiniteDuration
 
 sealed trait Transition[F[_], Err, State] extends Product with Serializable {
@@ -24,6 +27,9 @@ object Transition {
 
   def apply[F[_], Err, State](run: F[Either[Err, State]]): Transition[F, Err, State] =
     Impl(run = run, delay = None, handle = None)
+
+  def loopState[F[_]: Applicative, Err, State](state: State): Transition[F, Err, State] =
+    apply(state.asRight[Err].pure[F])
 }
 
 sealed trait Saga[F[_], Err, State, Out] extends Product with Serializable {
